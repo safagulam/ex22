@@ -1,0 +1,68 @@
+https://github.com/mgsgoms/helloworld-java-maven
+
+
+6th
+sudo apt update
+sudo apt install ansible -y
+ssh-keygen    # Press Enter to accept defaults if not already done
+ssh-copy-id user@host_ip
+sudo nano /etc/ansible/hosts
+[webservers]
+192.168.1.10 ansible_user=your_user
+192.168.1.11 ansible_user=your_user
+---
+
+nano (playbook).yml
+- name: Setup Apache Web Server
+  hosts: webservers
+  become: yes
+
+  tasks:
+    - name: Install Apache
+      apt:
+        name: apache2
+        state: present
+        update_cache: yes
+
+    - name: Start and Enable Apache Service
+      service:
+        name: apache2
+        state: started
+        enabled: yes
+
+    - name: Deploy Sample HTML Page
+      copy:
+        content: "<h1>Welcome</h1>"
+        dest: /var/www/html/index.html
+
+
+
+ansible-playbook webapp_setup.yml
+
+7th
+
+Host file updation
+
+$gedit /etc/ansible/hosts
+
+To view the files in ansible
+
+cd /etc/ansible
+
+ls
+
+hosts ansible.cfg roles
+
+roles
+
+ansible-galaxy init apache
+
+ls
+
+tree apache
+
+$ansible main.yml
+
+Run the playbook
+
+$ansible-playbook wintest.yml
