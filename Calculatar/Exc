@@ -73,3 +73,38 @@ Sudo apt insatll ansible
 gedit /etc/ansible/hosts
 nano install_ngnix.yml
 ansible-playbook-i localhost, install_ngnix.yml
+
+
+Ex 6
+
+Sudo apt update 
+Sudo apt install ansible
+Sudo  gedit/etc/ansible/hosts
+Nano install_nginx.yml
+Ansible-playbook-i local host,install_nginx.yml
+
+Program 
+
+Name:My first play
+hosts:all
+tasks:
+ name;ping my hosts
+ansible.builtin.win_ping:null
+name:print message 
+ansible.builtin.debug:
+Msg:hello world
+Name:start the MYSQL service
+ansible.buil.service:
+name;mysql 
+state:Started
+
+7
+
+$getit/etc/ansible/hosts
+cd/etc/ansible
+ls
+hosts ansible.cfg roles
+roles
+$ ansible-galaxy init apache
+ls
+tree apache
